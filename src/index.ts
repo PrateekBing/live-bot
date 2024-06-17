@@ -4,7 +4,7 @@ export interface Env {
   
   export default {
 	async fetch(request: Request, env: Env, ctx: any) {
-		if (request.method === 'POST') {
+		if (request.method === 'POST' && request.headers.get("token") === token) {
 			try {
 				const requestBody = await request.text();
 				const DB = env.DB;

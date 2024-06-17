@@ -5,8 +5,12 @@ import os
 client = discord.Client(intents=discord.Intents.all())
 
 def uploading(message):
+    headersList = {
+        "token": os.getenv('secret'),
+         "Content-Type": "text/plain" 
+    }
     url = 'https://live.prateekdeshmukh.com'
-    x = requests.post(url, data = message)
+    x = requests.post(url, data = message, headers=headersList)
 
 @client.event
 async def on_ready():
