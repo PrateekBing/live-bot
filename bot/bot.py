@@ -6,7 +6,7 @@ client = discord.Client(intents=discord.Intents.all())
 
 def uploading(message):
     headersList = {
-        "token": os.getenv("secret"),
+        "token": os.getenv("message_secret"),
          "Content-Type": "text/plain" 
     }
     url = 'https://live.prateekdeshmukh.com'
@@ -14,7 +14,7 @@ def uploading(message):
 
 def uploadingImage(img):
     headersList = {
-        "token": os.getenv("secret2")
+        "token": os.getenv("image_secret")
     }
     url = "https://pixo-81h.pages.dev/api/upload"
     x = requests.post(url, data = img, headers = headersList)
